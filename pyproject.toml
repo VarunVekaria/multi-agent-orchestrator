@@ -14,9 +14,13 @@ dependencies = [
 [project.optional-dependencies]
 demo = ["typer>=0.12", "rich>=13.0"]
 dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+ui = ["fastapi>=0.116", "uvicorn>=0.35", "pydantic>=2.0"]
 
 [tool.setuptools.packages.find]
-include = ["multi_agent_orchestrator*", "demo*"]
+include = ["multi_agent_orchestrator*", "demo*", "ui*"]
+
+[tool.setuptools.package-data]
+ui = ["static/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

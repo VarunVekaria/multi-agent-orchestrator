@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-state="empty">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multi-Agent Orchestrator</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <!-- Shown only in the empty state; hidden once the first message lands. -->
+      <div class="greeting" id="greeting">
+        <h1>What should the agents work on?</h1>
+        <p>Describe a task. It gets broken into agents and dependencies.</p>
+      </div>
+
+      <div class="thread-scroll" id="threadScroll">
+        <ol class="thread" id="thread" aria-live="polite" aria-label="Conversation"></ol>
+      </div>
+
+      <div class="composer-dock">
+        <form class="composer" id="composer" autocomplete="off">
+          <label class="sr-only" for="input">Your query</label>
+          <textarea
+            id="input"
+            name="query"
+            rows="1"
+            placeholder="Describe a task…"
+            enterkeyhint="send"
+            maxlength="10000"
+          ></textarea>
+          <button type="submit" id="send" disabled aria-label="Send query">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="M12 19V5M12 5l-6 6M12 5l6 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </form>
+        <p class="hint">Enter to send · Shift + Enter for a new line</p>
+      </div>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
